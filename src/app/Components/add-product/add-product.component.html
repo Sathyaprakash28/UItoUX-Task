@@ -1,0 +1,77 @@
+
+<div class="jumbotron jumbotron-fluid jumbo">
+    <div class="container title">
+    <h1 class="animate__animated animate__fadeInUp">Add Product</h1>
+    </div>
+    </div>
+    
+    
+    
+    
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+    <div class="row justify-content-center" style="margin-top: -200px; z-index: 1px; ">
+    <div class="col-md-8">
+    <div class="card shadow animate__animated animate__fadeInUp" style="border: none;">
+    <div class="card-header">
+    <h4 class="card-title"><b>Add Your Product Here</b></h4>
+    </div>
+    <div class="card-body">
+    <form class="was-validated" #regForm='ngForm' (ngSubmit)="AddProduct(regForm)">
+    
+    <br>
+    <div class="row">
+    <div class="col-md-2 pr-1">
+    <label for="firstname"><b>Company Name</b></label>
+    </div>
+    <div class="col-md-9 pr-1">
+    <div class="form-group">
+    <input id="company" name="company" [(ngModel)]="model.company" #company="ngModel" type="text" class="form-control" required>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-2 pr-1">
+    <label for="RollNumber"><b>Product Name</b></label>
+    </div>
+    <div class="col-md-9 pr-1">
+    <div class="form-group">
+    <input type="text" class="form-control" id="product" name="product" [(ngModel)]="model.product" #product="ngModel" required>
+    </div>
+    </div>
+    </div>
+    
+    <div class="row">
+    <div class="col-md-2 pr-1">
+    <label for="RollNumber"><b>Price</b></label>
+    </div>
+    <div class="col-md-8 pr-1">
+    <div class="form-group">
+        <input type="range" min="5000" max="100000" step="5000" value="0" class="slider" id="range" name="range" [(ngModel)]="model.range" #range="ngModel"  required> 
+    </div>
+    </div>
+    <div class="col-md-2 pr-1">
+        <b>&#8377; {{model.range}}</b>
+        </div>
+    </div>
+    
+
+
+        {{model|json}}
+
+
+
+
+    <div class="text-right">
+        <button [routerLink]="['/adminDash']" class="btn btn-outline-success" style="outline: none;" >
+            <i class="fas fa-chevron-left"></i> Back to Dashboard</button>&nbsp;
+    <button type="submit" class="btn btn-outline-danger" [disabled]=!regForm.form.valid style="outline: none;" >
+        <i class="fas fa-plus"></i> Add Product</button>
+    </div>
+    <div class="clearfix"></div>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
